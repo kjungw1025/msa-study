@@ -37,7 +37,6 @@ public class FirebaseCloudMessageService {
      * 단일 기기
      * Firebase에 메시지를 수신하는 함수 (헤더와 바디 직접 만들기)
      */
-    @Transactional
     public String pushAlarm(FCMPushRequestDto dto) throws IOException {
         String message = makeSingleMessage(dto);
         sendPushMessage(message);

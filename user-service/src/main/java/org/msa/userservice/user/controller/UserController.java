@@ -54,9 +54,6 @@ public class UserController {
     @PostMapping("/reissue")
     public ResponseRefreshTokenDto refreshToken(HttpServletRequest request,
                                                 @Valid @RequestBody RequestRefreshTokenDto dto) {
-        System.out.println(request);
-        System.out.println(request.getHeader("Authorization"));
-        System.out.println(dto.getRefreshToken());
         return userService.refreshToken(request, dto.getRefreshToken());
     }
 }

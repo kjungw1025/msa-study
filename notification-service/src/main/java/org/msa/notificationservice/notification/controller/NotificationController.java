@@ -30,7 +30,6 @@ public class NotificationController {
     @PostMapping("/sendMessage")
     public String sendMessage(@RequestHeader("requestId") String requestId,
                             @Valid @RequestBody FCMPushRequestDto fcmPushRequestDto) throws IOException {
-        System.out.println("requestId: " + requestId);
         return firebaseCloudMessageService.pushAlarm(fcmPushRequestDto);
     }
 }

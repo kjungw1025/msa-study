@@ -37,6 +37,7 @@ dependencies {
 
     // spring cloud
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     // db
     runtimeOnly 'com.mysql:mysql-connector-j'
@@ -47,7 +48,6 @@ dependencies {
 
     // firebase sdk
     implementation 'com.google.firebase:firebase-admin:9.2.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

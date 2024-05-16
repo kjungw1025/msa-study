@@ -28,8 +28,7 @@ public class NotificationController {
      * 사용자에게 알람을 보냅니다. (테스트)
      */
     @PostMapping("/sendMessage")
-    public String sendMessage(@RequestHeader("requestId") String requestId,
-                            @Valid @RequestBody FCMPushRequestDto fcmPushRequestDto) throws IOException {
-        return firebaseCloudMessageService.pushAlarm(fcmPushRequestDto);
+    public void sendMessage(@Valid @RequestBody FCMPushRequestDto fcmPushRequestDto) throws IOException {
+        firebaseCloudMessageService.pushAlarm(fcmPushRequestDto);
     }
 }

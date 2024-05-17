@@ -61,7 +61,8 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
                         }
 
                         exchange.getRequest().mutate()
-                                .header("requestId", jwtUtil.getUserId(accessToken)).build();
+                                .header("requestId", jwtUtil.getUserId(accessToken))
+                                .header("requestRole", jwtUtil.getUserRole(accessToken)).build();
 
                     }, () -> {
                         if(tokenAuthenticationRequired(exchange.getRequest())) {

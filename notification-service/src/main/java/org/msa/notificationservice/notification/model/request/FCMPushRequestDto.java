@@ -9,8 +9,6 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FCMPushRequestDto {
 
-    private String targetToken;
-
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String title;
 

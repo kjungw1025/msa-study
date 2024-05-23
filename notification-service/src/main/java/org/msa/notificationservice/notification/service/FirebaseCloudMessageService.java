@@ -26,8 +26,8 @@ public class FirebaseCloudMessageService {
      * 단일 기기
      * Firebase에 메시지를 수신하는 함수 (헤더와 바디 직접 만들기)
      */
-    public void pushAlarm(FCMPushRequestDto dto) throws IOException {
-        String message = makeSingleMessage(dto);
+    public void pushAlarm(String deviceToken, FCMPushRequestDto dto) throws IOException {
+        String message = makeSingleMessage(deviceToken, dto);
         sendPushMessage(message);
     }
 
@@ -43,10 +43,10 @@ public class FirebaseCloudMessageService {
     }
 
     // 요청 파라미터를 FCM의 body 형태로 만들어주는 메서드 (단일 기기)
-    private String makeSingleMessage(FCMPushRequestDto requestDto) throws JsonProcessingException {
+    private String makeSingleMessage(String deviceToken, FCMPushRequestDto requestDto) throws JsonProcessingException {
         FCMMessage fcmMessage = FCMMessage.builder()
                 .message(FCMMessage.Message.builder()
-                        .token(requestDto.getTargetToken())
+                        .token(deviceToken)
                         .notification(FCMMessage.Notification.builder()
                                 .title(requestDto.getTitle())
                                 .body(requestDto.getBody())

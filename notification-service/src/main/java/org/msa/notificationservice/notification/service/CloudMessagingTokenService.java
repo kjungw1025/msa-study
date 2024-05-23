@@ -3,6 +3,7 @@ package org.msa.notificationservice.notification.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.msa.notificationservice.global.auth.role.UserRole;
+import org.msa.notificationservice.notification.exception.DeviceTokenNotFoundException;
 import org.msa.notificationservice.notification.model.CloudMessagingToken;
 import org.msa.notificationservice.notification.repository.CloudMessagingTokenRepository;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,9 @@ public class CloudMessagingTokenService {
                 .build();
 
         cloudMessagingTokenRepository.save(cloudMessagingToken);
+    }
+
+    public String findDeviceToken(Long userId) {
+        return cloudMessagingTokenRepository.findDeviceTokenByUserId(userId).orElseThrow(DeviceTokenNotFoundException::new);
     }
 }

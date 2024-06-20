@@ -35,7 +35,10 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
     private static final String SIGN_UP_PATH = "/sign-up";
     private static final String LOGIN_PATH = "/login";
     private static final String ACTUATOR_PATH = "/actuator";
-    private static final List<String> TOKEN_AUTH_WHITELIST = List.of(SIGN_UP_PATH, LOGIN_PATH, ACTUATOR_PATH);
+    private static final String SWAGGER_PATH = "/swagger-ui";
+    private static final String SWAGGER_DOCS_PATH = "/v3/api-docs";
+
+    private static final List<String> TOKEN_AUTH_WHITELIST = List.of(SIGN_UP_PATH, LOGIN_PATH, ACTUATOR_PATH, SWAGGER_PATH, SWAGGER_DOCS_PATH);
     private static final String ERROR_MESSAGE_FORMAT = "{\"errorCode\": \"%s\", \"errorMessage\": \"%s\"}";
 
     public AuthorizationHeaderFilter() {
